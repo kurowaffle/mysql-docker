@@ -4,9 +4,9 @@ services:
     container_name: mysql-container
     restart: unless-stopped
     environment:
-      MYSQL_ROOT_PASSWORD: rootpassword123
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
     ports:
-      - "3306:3306"
+      - "${MYSQL_PORT}:3306"
     volumes:
       - ./data:/var/lib/mysql
       - ./config/my.cnf:/etc/mysql/conf.d/my.cnf:ro
